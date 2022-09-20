@@ -24,12 +24,9 @@ public class AccountWizardStepThreePage implements AccountWizardPage, BasePage {
     public AccountWizardStepEmailConfirmationPage uploadPassportImages(String set) {
         dataMessage("Uploading photos as", set);
         documentsSet(set);
-        $("#field-element-passport").
-                uploadFile(id);
-        $("#field-element-passportSecondPage").
-                uploadFile(secondPage);
-        $("#field-element-photoWithPassport").
-                uploadFile(withId);
+        $("#field-element-passport").uploadFile(id);
+        $("#field-element-passportSecondPage").uploadFile(secondPage);
+        $("#field-element-photoWithPassport").uploadFile(withId);
         submit();
         return page(AccountWizardStepEmailConfirmationPage.class);
     }

@@ -15,7 +15,9 @@ import static io.qameta.allure.Allure.addAttachment;
  * Report --- Class to send things to Allure
  * So far only screenshot is here
  */
-public class Report {
+public final class Report {
+    Report() {}
+
     public static void screenshot(String name) {
         StepResult result = new StepResult().setName(name);
         result.setStatus(Status.PASSED);
