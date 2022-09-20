@@ -8,9 +8,11 @@ import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
+import static io.qameta.allure.Allure.step;
 
 public class AccountWizardStepOnePage extends AccountWizardPage {
     public AccountWizardStepOnePage fillPersonalData(Map<String, String> testData) {
+        dataMessage("Filling personal data", testData);
         $("#field-element-firstname").setValue(testData.get("firstName"));
         $("#field-element-lastname").setValue(testData.get("lastName"));
         $("#field-element-stageName").setValue(testData.get("stageName"));
@@ -30,6 +32,7 @@ public class AccountWizardStepOnePage extends AccountWizardPage {
     }
 
     public AccountWizardStepOnePage fillAddressData(Map<String, String> testData) {
+        dataMessage("Filling address", testData);
         $("#field-element-addressRegion").setValue(testData.get("region"));
         $("#field-element-addressCity").setValue(testData.get("city"));
         $("#field-element-addressPostCode").setValue(testData.get("postCode"));

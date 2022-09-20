@@ -7,6 +7,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
+import static io.qameta.allure.Allure.step;
 
 public class AccountWizardStepThreePage extends AccountWizardPage {
     private File id;
@@ -22,6 +23,7 @@ public class AccountWizardStepThreePage extends AccountWizardPage {
     }
 
     public AccountWizardStepEmailConfirmationPage uploadPassportImages(String set) {
+        dataMessage("Uploading photos as", set);
         documentsSet(set);
         $("#field-element-passport").
                 uploadFile(id);

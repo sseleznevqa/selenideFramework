@@ -6,9 +6,11 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static io.qameta.allure.Allure.step;
 
 /**
  * TestHelper --- things which is necessary for every Test class
@@ -29,6 +31,12 @@ public class TestHelper {
         Configuration.baseUrl = "https://studio.faphouse.com/";
         Configuration.pageLoadTimeout = 30000;
         Configuration.timeout = 30000;
+    }
+
+    @BeforeEach()
+    public void environmentMessage() {
+        // TODO: Add more useful things here
+        step("This test was running in " + System.getProperty("browser"));
     }
 
     @AfterEach()
