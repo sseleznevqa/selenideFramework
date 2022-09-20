@@ -1,6 +1,6 @@
-package fapHouse.tests.helpers.testData;
+package fap.house.tests.helpers.test.data;
 
-import fapHouse.tests.helpers.Generator;
+import fap.house.tests.helpers.Generator;
 
 import java.util.HashMap;
 import java.util.Map;

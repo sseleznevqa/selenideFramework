@@ -1,6 +1,7 @@
-package fapHouse.tests.helpers;
+package fap.house.tests.helpers;
 
-import fapHouse.tests.pages.*;
+import fap.house.tests.pages.BasePage;
+import fap.house.tests.pages.MainPage;
 
 import static com.codeborne.selenide.Selenide.open;
 

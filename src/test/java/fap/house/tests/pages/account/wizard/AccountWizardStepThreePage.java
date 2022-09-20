@@ -1,15 +1,14 @@
-package fapHouse.tests.pages.accountWizard;
+package fap.house.tests.pages.account.wizard;
 
 import com.codeborne.selenide.SelenideElement;
-import fapHouse.tests.helpers.testData.StartEarningMoneyData;
+import fap.house.tests.pages.BasePage;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static io.qameta.allure.Allure.step;
 
-public class AccountWizardStepThreePage extends AccountWizardPage {
+public class AccountWizardStepThreePage implements AccountWizardPage, BasePage {
     private File id;
     private File secondPage;
     private File withId;

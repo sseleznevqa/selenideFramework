@@ -1,4 +1,4 @@
-package fapHouse.tests.helpers;
+package fap.house.tests.helpers;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.model.Status;

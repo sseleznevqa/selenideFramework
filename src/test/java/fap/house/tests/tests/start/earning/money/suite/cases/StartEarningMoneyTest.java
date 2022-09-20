@@ -1,6 +1,6 @@
-package fapHouse.tests.tests.startEarningMoneySuite.cases;
-import fapHouse.tests.pages.accountWizard.AccountWizardStepEmailConfirmationPage;
-import fapHouse.tests.tests.startEarningMoneySuite.StartEarningMoneySuite;
+package fap.house.tests.tests.start.earning.money.suite.cases;
+import fap.house.tests.pages.account.wizard.AccountWizardStepEmailConfirmationPage;
+import fap.house.tests.tests.start.earning.money.suite.StartEarningMoneySuite;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package fapHouse.tests.helpers;
+package fap.house.tests.helpers;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit5.ScreenShooterExtension;

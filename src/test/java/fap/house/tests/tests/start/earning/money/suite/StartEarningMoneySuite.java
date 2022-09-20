@@ -1,10 +1,10 @@
-package fapHouse.tests.tests.startEarningMoneySuite;
+package fap.house.tests.tests.start.earning.money.suite;
 
-import fapHouse.tests.helpers.Goto;
-import fapHouse.tests.helpers.TestHelper;
-import fapHouse.tests.helpers.testData.StartEarningMoneyData;
-import fapHouse.tests.pages.accountWizard.AccountWizardStepThreePage;
-import fapHouse.tests.pages.MainPage;
+import fap.house.tests.helpers.Goto;
+import fap.house.tests.helpers.TestHelper;
+import fap.house.tests.helpers.test.data.StartEarningMoneyData;
+import fap.house.tests.pages.account.wizard.AccountWizardStepThreePage;
+import fap.house.tests.pages.MainPage;
 import org.junit.jupiter.api.BeforeEach;
 
 /**

@@ -1,15 +1,14 @@
-package fapHouse.tests.pages;
+package fap.house.tests.pages;
 
-import fapHouse.tests.pages.accountWizard.AccountWizardStepOnePage;
+import fap.house.tests.pages.account.wizard.AccountWizardStepOnePage;
 import org.openqa.selenium.By;
 
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static io.qameta.allure.Allure.step;
 
-public class MainPage extends BasePage{
+public class MainPage implements BasePage{
     public AccountWizardStepOnePage startEarningMoney(Map<String, String> testData) {
         dataMessage("Filling basic fields", testData);
         $(By.name("username")).setValue(testData.get("userName"));

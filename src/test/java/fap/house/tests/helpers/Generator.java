@@ -1,11 +1,13 @@
-package fapHouse.tests.helpers;
+package fap.house.tests.helpers;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  * Generator --- Class to generate random things.
  */
-public class Generator {
+public final class Generator {
+    private Generator() {}
+
     public static String randomString(int length) {
         return RandomStringUtils.randomAlphabetic(length);
     }

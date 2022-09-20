@@ -1,16 +1,15 @@
-package fapHouse.tests.pages.accountWizard;
+package fap.house.tests.pages.account.wizard;
 
 import com.codeborne.selenide.Selenide;
-import fapHouse.tests.helpers.testData.StartEarningMoneyData;
+import fap.house.tests.pages.BasePage;
 import org.openqa.selenium.By;
 
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
-import static io.qameta.allure.Allure.step;
 
-public class AccountWizardStepOnePage extends AccountWizardPage {
+public class AccountWizardStepOnePage implements AccountWizardPage, BasePage {
     public AccountWizardStepOnePage fillPersonalData(Map<String, String> testData) {
         dataMessage("Filling personal data", testData);
         $("#field-element-firstname").setValue(testData.get("firstName"));

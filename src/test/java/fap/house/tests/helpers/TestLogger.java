@@ -1,4 +1,4 @@
-package fapHouse.tests.helpers;
+package fap.house.tests.helpers;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestWatcher;
