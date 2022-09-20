@@ -12,7 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
  * It contains routines which could be used by testcases
  * It also may do some configuration or hold testData for suite
  */
-public class StartEarningMoneySuite extends TestHelper {
+public class StartEarningMoneySuite implements TestHelper {
     public StartEarningMoneyData testData;
     protected AccountWizardStepThreePage toStepThreeRoutine() {
         MainPage main = (MainPage) Goto.page("");

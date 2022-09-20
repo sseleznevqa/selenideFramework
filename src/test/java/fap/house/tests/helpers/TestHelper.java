@@ -15,13 +15,13 @@ import static io.qameta.allure.Allure.step;
 /**
  * TestHelper --- things which is necessary for every Test class
  * use like:
- * public class YourTest extends TestHelper...
+ * public class YourTestSuite implements TestHelper...
  */
 @ExtendWith({ScreenShooterExtension.class})
 @ExtendWith(TestLogger.class)
-public class TestHelper {
+public interface TestHelper {
     @BeforeAll
-    public static void config() {
+    static void config() {
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide()
                         .screenshots(true)
@@ -34,13 +34,13 @@ public class TestHelper {
     }
 
     @BeforeEach()
-    public void environmentMessage() {
+    default void environmentMessage() {
         // TODO: Add more useful things here
         step("This test was running in " + System.getProperty("browser"));
     }
 
     @AfterEach()
-    public void deleteCookies() {
+    default void deleteCookies() {
         getWebDriver().manage().deleteAllCookies();
     }
 }
