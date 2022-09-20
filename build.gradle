@@ -1,0 +1,104 @@
+
+
+group group
+version version
+
+apply plugin: 'java'
+apply plugin: 'io.qameta.allure'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
+}
+
+dependencies {
+    implementation('com.codeborne:selenide:6.7.4')
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.9.0')
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.9.0')
+    testImplementation('org.junit.platform:junit-platform-runner:1.9.0')
+    testImplementation('io.qameta.allure:allure-junit5:2.19.0')
+    testImplementation('io.qameta.allure:allure-selenide:2.19.0')
+    testImplementation('org.slf4j:slf4j-log4j12:2.0.0')
+    implementation 'commons-io:commons-io:2.11.0'
+
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+    }
+}
+
+/*
+* Allure Configuration
+*/
+allure {
+    version = '2.19.0'
+    useJUnit5 { version = '2.19.0' }
+    resultsDir = new File("$buildDir/allure-results/last")
+}
+
+configurations {
+    testCompile
+}
+
+['chrome', 'firefox', 'safari'].forEach {String browser ->
+    tasks.register(browser + 'Allure', Exec) {
+            commandLine 'sh', "./src/test/resources/scripts/${browser}Allure.sh"
+    }
+}
+
+task chrome(type: Test) {
+    systemProperty "browser", "chrome"
+    useJUnitPlatform()
+}
+
+task safari(type: Test) {
+    systemProperties = [
+            // safari goes one by one...
+            "junit.jupiter.execution.parallel.enabled": false,
+    ]
+    systemProperty "browser", "safari"
+    useJUnitPlatform()
+}
+
+task firefox(type: Test) {
+    systemProperty "browser", "firefox"
+    useJUnitPlatform()
+}
+
+task chromeFox() {
+    finalizedBy chrome, firefox
+}
+
+// we need it since Allure does not support separate output folders for tasks
+// there is a way to do this via allure raw but it is more simple and flexible
+tasks.withType(Test).forEach() { test ->
+    tasks.register(test.name + "Report") {
+        it.doLast {
+            if (file("$buildDir/allure-results/${test.name}").exists()) {
+                return logger.warn('Previous report will stay. Use gradle clean if you want a new one')
+            }
+            if (file("$buildDir/allure-results/last").exists()) {
+                return file("$buildDir/allure-results/last").renameTo("$buildDir/allure-results/${test.name}")
+            }
+        }
+    }
+    test.finalizedBy(test.name + "Report")
+}
+
+test {
+    dependsOn(firefox)
+    dependsOn(safari)
+    dependsOn(chrome)
+}
+
+

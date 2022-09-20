@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="fapHouse.tests.tests.startEarningMoneySuite.cases.StartEarningMoneyTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-09-20T06:50:40" hostname="Sergeis-MacBook-Pro.local" time="14.195">
+  <properties/>
+  <testcase name="Start Earning Money (Successful flow)" classname="fapHouse.tests.tests.startEarningMoneySuite.cases.StartEarningMoneyTest" time="14.195"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
